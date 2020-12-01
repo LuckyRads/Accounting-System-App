@@ -3,19 +3,19 @@
             xmlns:app="http://schemas.android.com/apk/res-auto"
             xmlns:tools="http://schemas.android.com/tools"
             android:id="@+id/mobile_navigation"
-            app:startDestination="@+id/nav_home">
+            app:startDestination="@+id/nav_system">
 
     <fragment
-            android:id="@+id/nav_home"
-            android:name="accountingsystem.app.ui.home.HomeFragment"
-            android:label="@string/menu_home"
-            tools:layout="@layout/fragment_home"/>
+            android:id="@+id/nav_system"
+            android:name="accountingsystem.app.ui.system.SystemFragment"
+            android:label="@string/menu_system"
+            tools:layout="@layout/fragment_system"/>
 
     <fragment
-            android:id="@+id/nav_gallery"
-            android:name="accountingsystem.app.ui.gallery.GalleryFragment"
-            android:label="@string/menu_gallery"
-            tools:layout="@layout/fragment_gallery"/>
+            android:id="@+id/nav_people"
+            android:name="accountingsystem.app.ui.people.PeopleFragment"
+            android:label="@string/menu_people"
+            tools:layout="@layout/fragment_people"/>
 
     <fragment
             android:id="@+id/nav_slideshow"
