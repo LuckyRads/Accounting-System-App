@@ -11,7 +11,6 @@ public class RestUtil {
     static final String SERVER_URL = "http://192.168.1.253:8080/accounting-system";
 
     public static String executeGet(String requestUrl, String urlParam) {
-        System.out.println(SERVER_URL + requestUrl + urlParam);
         try {
             URL url = new URL(SERVER_URL + requestUrl + urlParam);
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
@@ -30,11 +29,10 @@ public class RestUtil {
                     response.append(line);
                 }
                 in.close();
-                System.out.println(response.toString());
                 return response.toString();
             } else {
                 // TODO: alert user about server failure
-                return "";
+                return "Server has returned a bad status.";
             }
         } catch (Exception e) {
             e.printStackTrace();

@@ -24,7 +24,6 @@ public class PeopleFragment extends Fragment {
 
         peopleList = root.findViewById(R.id.peopleList);
 
-//        peopleList;
         List<String> arrayList = new ArrayList();
         arrayList.add("aaa");
         arrayList.add("bbb");
@@ -35,10 +34,8 @@ public class PeopleFragment extends Fragment {
         arrayAdapter.notifyDataSetChanged();
         peopleList.setAdapter(arrayAdapter);
 
-        PeopleService peopleService = new PeopleService();
-        peopleService.execute("/person/people");
-
-//        System.out.println(RestUtil.executeGet("/person/people", ""));
+        PeopleService peopleService = new PeopleService("/person/people", "");
+        peopleService.execute("GET");
 
         return root;
     }
