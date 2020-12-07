@@ -50,10 +50,11 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void continueIfValidated(String response) {
-        if (response.equalsIgnoreCase("success")) {
+        if (response.equalsIgnoreCase("person") || response.equalsIgnoreCase("company")) {
             finish();
             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
             intent.putExtra("loggedInUser", usernameField.getText().toString());
+            intent.putExtra("loggedInUserType", response);
             startActivity(intent);
         } else {
             Toast.makeText(this, response, Toast.LENGTH_SHORT).show();

@@ -52,8 +52,11 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = getIntent();
         if (intent.getExtras() != null) {
             String loggedInUser = intent.getStringExtra("loggedInUser");
+            String loggedInUserType = intent.getStringExtra("loggedInUserType");
             TextView navHeaderUser = findViewById(R.id.navHeaderUser);
+            TextView navHeaderUserType = findViewById(R.id.navHeaderUserType);
             navHeaderUser.setText(loggedInUser);
+            navHeaderUserType.setText(loggedInUserType.toUpperCase());
         }
 
         return true;

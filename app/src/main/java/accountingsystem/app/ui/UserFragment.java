@@ -52,7 +52,13 @@ public class UserFragment extends Fragment {
     }
 
     public void loadUserInfo() {
-        UserService userService = new UserService("/person/people"); // tODO
+        TextView loggedInUserType = getActivity().findViewById(R.id.navHeaderUserType);
+        UserService userService = null;
+        if (loggedInUserType.getText().toString().equalsIgnoreCase("person")) {
+            userService = new UserService("/person/people");
+        } else {
+            userService = new UserService("/company/companies");
+        }
         userService.execute("GET");
     }
 
@@ -83,7 +89,8 @@ public class UserFragment extends Fragment {
                 "\"password\": \"" + passwordField.getText() + "\"," +
                 "\"name\": \"" + nameField.getText() + "\"" +
                 "}";
-        UserService userService = new UserService("/person", "/" + userId, requestBody);
+        TextView loggedInUserType = getActivity().findViewById(R.id.navHeaderUserType);
+        UserService userService = new UserService("/" + loggedInUserType.getText().toString().toLowerCase(), "/" + userId, requestBody);
         userService.execute("POST");
     }
 
