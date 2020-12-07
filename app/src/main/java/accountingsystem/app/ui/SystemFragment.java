@@ -1,4 +1,4 @@
-package accountingsystem.app.ui.system;
+package accountingsystem.app.ui;
 
 import accountingsystem.app.R;
 import android.os.Bundle;

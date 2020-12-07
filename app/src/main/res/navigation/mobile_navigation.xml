@@ -7,25 +7,25 @@
 
     <fragment
             android:id="@+id/nav_system"
-            android:name="accountingsystem.app.ui.system.SystemFragment"
+            android:name="accountingsystem.app.ui.SystemFragment"
             android:label="@string/menu_system"
             tools:layout="@layout/fragment_system"/>
 
     <fragment
             android:id="@+id/nav_people"
-            android:name="accountingsystem.app.ui.people.PeopleFragment"
+            android:name="accountingsystem.app.ui.PeopleFragment"
             android:label="@string/menu_people"
             tools:layout="@layout/fragment_people"/>
 
     <fragment
             android:id="@+id/nav_companies"
-            android:name="accountingsystem.app.ui.companies.CompaniesFragment"
+            android:name="accountingsystem.app.ui.CompaniesFragment"
             android:label="@string/menu_companies"
             tools:layout="@layout/fragment_companies"/>
 
     <fragment
             android:id="@+id/nav_categories"
-            android:name="accountingsystem.app.ui.categories.CategoriesFragment"
+            android:name="accountingsystem.app.ui.CategoriesFragment"
             android:label="@string/menu_categories"
             tools:layout="@layout/fragment_categories"/>
 </navigation>
