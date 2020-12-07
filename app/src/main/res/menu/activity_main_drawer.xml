@@ -13,12 +13,8 @@
                 android:icon="@drawable/ic_menu_user"
                 android:title="@string/menu_user"/>
         <item
-                android:id="@+id/nav_companies"
-                android:icon="@drawable/ic_menu_slideshow"
-                android:title="@string/menu_companies"/>
-        <item
                 android:id="@+id/nav_categories"
-                android:icon="@drawable/ic_menu_slideshow"
+                android:icon="@drawable/ic_menu_categories"
                 android:title="@string/menu_categories"/>
     </group>
 </menu>
