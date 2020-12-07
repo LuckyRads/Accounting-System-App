@@ -72,7 +72,6 @@ public class LoginActivity extends AppCompatActivity {
         private String requestUrl;
         private String urlParam;
         private String requestBody;
-        private String response;
 
         public LoginService() {
         }
