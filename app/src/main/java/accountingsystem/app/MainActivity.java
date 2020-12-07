@@ -49,6 +49,12 @@ public class MainActivity extends AppCompatActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
 
+        findViewById(R.id.logoutImage).setOnClickListener(v -> {
+            finish();
+            Intent intent = new Intent(this, LoginActivity.class);
+            startActivity(intent);
+        });
+
         Intent intent = getIntent();
         if (intent.getExtras() != null) {
             String loggedInUser = intent.getStringExtra("loggedInUser");
