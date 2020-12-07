@@ -8,7 +8,7 @@ import java.net.URL;
 
 public class RestUtil {
 
-    static final String SERVER_URL = "http://192.168.1.253:8080/accounting-system";
+    static final String SERVER_URL = "http://192.168.0.101:8080/accounting-system";
 
     public static String executeGet(String requestUrl, String urlParam) {
         try {

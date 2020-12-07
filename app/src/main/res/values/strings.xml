@@ -9,5 +9,6 @@
 
     <string name="menu_system">System</string>
     <string name="menu_people">People</string>
-    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_companies">Companies</string>
+    <string name="menu_categories">Categories</string>
 </resources>

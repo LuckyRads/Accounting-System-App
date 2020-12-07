@@ -1,0 +1,18 @@
+
+S
+java:S1874"1Remove this use of "AsyncTask"; it is deprecated.(¶şÅ·øÿÿÿÿ8†ì€â.
+Z	java:S106I"9Replace this use of System.out or System.err by a logger.(Ùæááúÿÿÿÿ8Æ¯¹â.
+[
+java:S4973?"9Use the "equals" method if value comparison was intended.(†ñİ•ûÿÿÿÿ8­´—â.
+V
+java:S4973="9Use the "equals" method if value comparison was intended.(à±÷„8­´—â.
+g
+java:S1874"JDon't override a deprecated method or explicitly mark it as "@Deprecated".(©…Ğ£8­ò’â.
+f
+java:S1874F"JDon't override a deprecated method or explicitly mark it as "@Deprecated".(­–ÀS8Ş«·â.
+T
+java:S1135I"2Complete the task associated to this TODO comment.(Ùæááúÿÿÿÿ8ÇÚÓâ.
+O
+java:S1135@"2Complete the task associated to this TODO comment.(Ç‡ßñ8›î—â.
+Q
+java:S1874G"5Remove this use of "onPostExecute"; it is deprecated.(úñ†8Ş«·â.
