@@ -8,21 +8,22 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import com.google.android.material.textfield.TextInputEditText;
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 
 public class UserFragment extends Fragment {
 
     //region Private variables
 
-    private EditText emailField;
+    private TextInputEditText emailField;
 
-    private EditText passwordField;
+    private TextInputEditText passwordField;
 
     private Button updateBtn;
 
@@ -65,12 +66,16 @@ public class UserFragment extends Fragment {
 
     public void setUserInfo(String response) {
         TextView loggedInUser = getActivity().findViewById(R.id.navHeaderUser);
-        System.out.println(loggedInUser.getText()); // TOOD: Go through array and get all user info
         try {
             JSONArray responseArray = new JSONArray(response);
 
             for (int i = 0; i < responseArray.length(); i++) {
-                System.out.println(responseArray.get(i));
+                JSONObject object = (JSONObject) responseArray.get(i);
+                if (loggedInUser.getText().equals(object.get("email"))) {
+                    emailField.setText(object.get("email").toString());
+                    passwordField.setText(object.get("password").toString());
+                    break;
+                }
             }
         } catch (JSONException e) {
             e.printStackTrace();
