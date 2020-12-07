@@ -54,7 +54,6 @@ public class SystemFragment extends Fragment {
     }
 
     public void setSystemInfo(String response) {
-        System.out.println(response);
         Gson parser = new Gson();
         Properties data = parser.fromJson(response, Properties.class);
 

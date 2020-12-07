@@ -12,10 +12,10 @@
             tools:layout="@layout/fragment_system"/>
 
     <fragment
-            android:id="@+id/nav_people"
-            android:name="accountingsystem.app.ui.PeopleFragment"
-            android:label="@string/menu_people"
-            tools:layout="@layout/fragment_people"/>
+            android:id="@+id/nav_user"
+            android:name="accountingsystem.app.ui.UserFragment"
+            android:label="@string/menu_user"
+            tools:layout="@layout/fragment_user"/>
 
     <fragment
             android:id="@+id/nav_companies"

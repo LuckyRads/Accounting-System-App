@@ -29,11 +29,11 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        loginBtn = findViewById(R.id.loginBtn);
-        loginBtn.setOnClickListener(view -> login());
-
         usernameField = findViewById(R.id.usernameField);
         passwordField = findViewById(R.id.passwordField);
+
+        loginBtn = findViewById(R.id.loginBtn);
+        loginBtn.setOnClickListener(view -> login());
     }
 
     //endregion
@@ -51,7 +51,9 @@ public class LoginActivity extends AppCompatActivity {
 
     public void continueIfValidated(String response) {
         if (response.equalsIgnoreCase("success")) {
+            finish();
             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+            intent.putExtra("loggedInUser", usernameField.getText().toString());
             startActivity(intent);
         } else {
             Toast.makeText(this, response, Toast.LENGTH_SHORT).show();
