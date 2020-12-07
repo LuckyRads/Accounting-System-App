@@ -1,6 +1,4 @@
 
-z
-Japp/src/main/java/accountingsystem/app/ui/slideshow/SlideshowFragment.java,1\6\16b1f04e0cfe736d50d84cb9c9eea37dd216ffd2
 k
 ;app/src/test/java/accountingsystem/app/ExampleUnitTest.java,b\f\bf406e1e77e46a583959299cde242d677cf37b17
 :
@@ -18,8 +16,6 @@ A
 local.properties,0\7\0712df971a99ac4d2fccb8e0fb19f377f3374cca
 ?
 settings.gradle,0\5\05efc8b1657769a27696d478ded1e95f38737233
-t
-Dapp/src/main/java/accountingsystem/app/ui/system/SystemFragment.java,b\e\be5a94d71ce5c6832e3151bb9c4e1081f16ca089
 h
 8app/src/main/java/accountingsystem/app/MainActivity.java,f\7\f71eee38e805fd69a4dfd4a2886a2361c3d64d80
 r
@@ -38,9 +34,5 @@ f
 6app/src/main/java/accountingsystem/app/model/User.java,b\8\b8ccf6773ebbf97f6a7db55a33581496626c80a7
 P
  app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
-t
-Dapp/src/main/java/accountingsystem/app/ui/people/PeopleFragment.java,8\1\810bfd4decc0ebe0f0fb55841051dd113a4253c5
 n
 >app/src/main/java/accountingsystem/app/rest/util/RestUtil.java,e\b\ebfef38dfc0187640dfd764de9bbaf89e659fd36
-v
-Fapp/src/main/java/accountingsystem/app/rest/service/PeopleService.java,6\7\67445d93d1b807d94504e6c11f9370b6a8bde81b
