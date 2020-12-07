@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import com.google.android.material.textfield.TextInputEditText;
@@ -24,6 +26,8 @@ public class SystemFragment extends Fragment {
 
     private TextInputEditText versionInput;
 
+    private Button updateBtn;
+
     //endregion
 
     //region Functions
@@ -35,6 +39,9 @@ public class SystemFragment extends Fragment {
         companyInput = root.findViewById(R.id.companyInput);
         createdAtInput = root.findViewById(R.id.createdAtInput);
         versionInput = root.findViewById(R.id.versionInput);
+
+        updateBtn = root.findViewById(R.id.updateBtn);
+        updateBtn.setOnClickListener(view -> updateSystemInfo());
 
         loadSystemInfo();
 
@@ -58,6 +65,16 @@ public class SystemFragment extends Fragment {
         companyInput.setText(company);
         createdAtInput.setText(dateCreated);
         versionInput.setText(version);
+    }
+
+    public void updateSystemInfo() {
+        String requestBody = "{" +
+                "\"company\": \"" + companyInput.getText() + "\"," +
+                "\"dateCreated\": \"" + createdAtInput.getText() + "\"," +
+                "\"version\": \"" + versionInput.getText() + "\"" +
+                "}";
+        SystemService systemService = new SystemService("/accounting-system", "", requestBody);
+        systemService.execute("POST");
     }
 
     //endregion
@@ -102,7 +119,11 @@ public class SystemFragment extends Fragment {
         @Override
         protected void onPostExecute(String result) {
             super.onPostExecute(result);
-            setSystemInfo(result);
+            if (result.contains("{")) {
+                setSystemInfo(result);
+            } else {
+                Toast.makeText(getActivity(), "System information updated successfully.", Toast.LENGTH_SHORT).show();
+            }
         }
 
     }

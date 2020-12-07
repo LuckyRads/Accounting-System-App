@@ -4,7 +4,6 @@ import accountingsystem.app.rest.util.RestUtil;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -31,11 +30,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         loginBtn = findViewById(R.id.loginBtn);
-        loginBtn.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                login();
-            }
-        });
+        loginBtn.setOnClickListener(view -> login());
 
         usernameField = findViewById(R.id.usernameField);
         passwordField = findViewById(R.id.passwordField);
