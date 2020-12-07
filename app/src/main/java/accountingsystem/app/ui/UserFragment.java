@@ -21,6 +21,8 @@ public class UserFragment extends Fragment {
 
     //region Private variables
 
+    private long userId;
+
     private TextInputEditText emailField;
 
     private TextInputEditText passwordField;
@@ -43,19 +45,6 @@ public class UserFragment extends Fragment {
 
         loadUserInfo();
 
-//        List<String> arrayList = new ArrayList();
-//        arrayList.add("aaa");
-//        arrayList.add("bbb");
-//
-//        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, arrayList);
-//        arrayAdapter.add("aaa");
-//        arrayAdapter.add("b11111111");
-//        arrayAdapter.notifyDataSetChanged();
-//        peopleList.setAdapter(arrayAdapter);
-
-//        PeopleService peopleService = new PeopleService("/person/people", "");
-//        peopleService.execute("GET");
-
         return root;
     }
 
@@ -74,6 +63,7 @@ public class UserFragment extends Fragment {
                 if (loggedInUser.getText().equals(object.get("email"))) {
                     emailField.setText(object.get("email").toString());
                     passwordField.setText(object.get("password").toString());
+                    userId = Long.parseLong(object.get("id").toString());
                     break;
                 }
             }
@@ -81,14 +71,15 @@ public class UserFragment extends Fragment {
             e.printStackTrace();
             Toast.makeText(getContext(), "Unable to parse user info.", Toast.LENGTH_SHORT).show();
         }
-
-
-//        String company = (String) data.get("company");
-//        String dateCreated = (String) data.get("dateCreated");
     }
 
     public void updateUserInfo() {
-        System.out.println("update");
+        String requestBody = "{" +
+                "\"email\": \"" + emailField.getText() + "\"," +
+                "\"password\": \"" + passwordField.getText() + "\"" +
+                "}";
+        UserService userService = new UserService("/person", "/" + userId, requestBody);
+        userService.execute("POST");
     }
 
     //endregion
@@ -157,7 +148,11 @@ public class UserFragment extends Fragment {
         @Override
         protected void onPostExecute(String result) {
             super.onPostExecute(result);
-            setUserInfo(result);
+            if (result.contains("{")) {
+                setUserInfo(result);
+            } else {
+                Toast.makeText(getActivity(), "Account information updated successfully.", Toast.LENGTH_SHORT).show();
+            }
         }
 
     }
