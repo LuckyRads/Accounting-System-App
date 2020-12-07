@@ -27,6 +27,8 @@ public class UserFragment extends Fragment {
 
     private TextInputEditText passwordField;
 
+    private TextInputEditText nameField;
+
     private Button updateBtn;
 
     //endregion
@@ -39,6 +41,7 @@ public class UserFragment extends Fragment {
 
         emailField = root.findViewById(R.id.emailField);
         passwordField = root.findViewById(R.id.passwordField);
+        nameField = root.findViewById(R.id.nameField);
 
         updateBtn = root.findViewById(R.id.updateBtn);
         updateBtn.setOnClickListener(view -> updateUserInfo());
@@ -49,7 +52,7 @@ public class UserFragment extends Fragment {
     }
 
     public void loadUserInfo() {
-        UserService userService = new UserService("/person/people");
+        UserService userService = new UserService("/person/people"); // tODO
         userService.execute("GET");
     }
 
@@ -63,6 +66,7 @@ public class UserFragment extends Fragment {
                 if (loggedInUser.getText().equals(object.get("email"))) {
                     emailField.setText(object.get("email").toString());
                     passwordField.setText(object.get("password").toString());
+                    nameField.setText(object.get("name").toString());
                     userId = Long.parseLong(object.get("id").toString());
                     break;
                 }
@@ -76,7 +80,8 @@ public class UserFragment extends Fragment {
     public void updateUserInfo() {
         String requestBody = "{" +
                 "\"email\": \"" + emailField.getText() + "\"," +
-                "\"password\": \"" + passwordField.getText() + "\"" +
+                "\"password\": \"" + passwordField.getText() + "\"," +
+                "\"name\": \"" + nameField.getText() + "\"" +
                 "}";
         UserService userService = new UserService("/person", "/" + userId, requestBody);
         userService.execute("POST");
