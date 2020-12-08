@@ -10,10 +10,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.widget.*;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import org.json.JSONArray;
@@ -36,6 +33,20 @@ public class CategoriesFragment extends Fragment {
 
     private List<Transaction> transactions;
 
+    private EditText nameField;
+
+    private EditText typeField;
+
+    private EditText amountField;
+
+    private EditText senderField;
+
+    private EditText receiverField;
+
+    private EditText dateField;
+
+    private EditText categoryField;
+
     //endregion
 
     //region Functions
@@ -46,6 +57,14 @@ public class CategoriesFragment extends Fragment {
 
         categoriesList = root.findViewById(R.id.categoriesList);
         transactionList = root.findViewById(R.id.transactionList);
+
+        nameField = root.findViewById(R.id.nameField);
+        typeField = root.findViewById(R.id.typeField);
+        amountField = root.findViewById(R.id.amountField);
+        senderField = root.findViewById(R.id.senderField);
+        receiverField = root.findViewById(R.id.receiverField);
+        dateField = root.findViewById(R.id.dateField);
+        categoryField = root.findViewById(R.id.categoryField);
 
         loadCategories();
 
@@ -94,6 +113,7 @@ public class CategoriesFragment extends Fragment {
                 String categoryName = categoriesList.getItemAtPosition(position).toString();
                 for (Category category : categories) {
                     if (category.getName().equalsIgnoreCase(categoryName)) {
+                        categoryField.setText(categoryName);
                         loadTransactions(category.getId());
                     }
                 }
@@ -141,9 +161,12 @@ public class CategoriesFragment extends Fragment {
                 String transactionName = transactionList.getItemAtPosition(position).toString().split(":")[1].trim();
                 for (Transaction transaction : transactions) {
                     if (transaction.getName().contains(transactionName)) {
-                        String toastMessage = "Amount: " + transaction.getAmount() + "; Receiver: " + transaction.getReceiver() +
-                                "; Sender: " + transaction.getSender() + "; Date:" + transaction.getDate();
-                        Toast.makeText(this.getContext(), toastMessage, Toast.LENGTH_SHORT).show();
+                        nameField.setText(transactionName);
+                        typeField.setText(transaction.getTransactionType().toString());
+                        amountField.setText(String.valueOf(transaction.getAmount()));
+                        senderField.setText(transaction.getSender());
+                        receiverField.setText(transaction.getReceiver());
+                        dateField.setText(transaction.getDate().toString());
                     }
                 }
             });
