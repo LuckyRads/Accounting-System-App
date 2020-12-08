@@ -1,0 +1,24 @@
+
+{
+java:S2293E"YReplace the type specification in this constructor call with the diamond operator ("<>").(ï¸™—øÿÿÿÿ8®Âñøã.
+g
+java:S1874W"JDon't override a deprecated method or explicitly mark it as "@Deprecated".(Å£ºä8Ó¶øã.
+R
+java:S1874"5Remove this use of "onPostExecute"; it is deprecated.(úñ†8Ó¶øã.
+{
+java:S1450"YRemove the "categories" field and declare it as a local variable in the relevant methods.(‚˜ºŠùÿÿÿÿ8ÓÇÆøã.
+{
+java:S22936"YReplace the type specification in this constructor call with the diamond operator ("<>").(ùÃÅ•ùÿÿÿÿ8Îëøã.
+\
+java:S4973†"9Use the "equals" method if value comparison was intended.(†ñİ•ûÿÿÿÿ8Ó¶øã.
+W
+java:S4973„"9Use the "equals" method if value comparison was intended.(à±÷„8Ó¶øã.
+F	java:S108‘")Either remove or fill this block of code.(å¥‡8•‚Àøã.
+Q
+java:S18740"/Remove this use of "execute"; it is deprecated.(áóÍÌøÿÿÿÿ8³†¿øã.
+g
+java:S1874"JDon't override a deprecated method or explicitly mark it as "@Deprecated".(­–ÀS8ªœ²øã.
+S
+java:S1874Q"1Remove this use of "AsyncTask"; it is deprecated.(³Ñ•îùÿÿÿÿ8Ó¶øã.
+\
+java:S1161#":Add the "@Override" annotation above this method signature(î•Éğûÿÿÿÿ8İŠ³øã.

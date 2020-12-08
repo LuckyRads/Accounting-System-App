@@ -36,3 +36,7 @@ P
  app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
 n
 >app/src/main/java/accountingsystem/app/rest/util/RestUtil.java,e\b\ebfef38dfc0187640dfd764de9bbaf89e659fd36
+k
+;app/src/main/java/accountingsystem/app/ui/UserFragment.java,c\8\c8676bb01799061ebfbe2bf794b323ee62c48cbd
+q
+Aapp/src/main/java/accountingsystem/app/ui/CategoriesFragment.java,1\4\14812ec6b88da5d4bd86a043a99411d8bca43e5f

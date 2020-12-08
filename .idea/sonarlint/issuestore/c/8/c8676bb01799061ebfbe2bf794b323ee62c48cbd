@@ -1,0 +1,21 @@
+
+M
+java:S4973"9Use the "equals" method if value comparison was intended.(à±÷„
+R
+java:S4973"9Use the "equals" method if value comparison was intended.(†ñÝ•ûÿÿÿÿ
+q
+java:S1450"XRemove the "updateBtn" field and declare it as a local variable in the relevant methods.(º§ÙÛýÿÿÿÿ
+S
+java:S1161":Add the "@Override" annotation above this method signature(î•Éðûÿÿÿÿ
+H
+java:S1874"/Remove this use of "execute"; it is deprecated.(´½¯÷þÿÿÿÿ
+C
+java:S1874"/Remove this use of "execute"; it is deprecated.(ÏÑ²¡
+E
+java:S1874"1Remove this use of "AsyncTask"; it is deprecated.(¢™Žý
+^
+java:S1874"JDon't override a deprecated method or explicitly mark it as "@Deprecated".(ƒ„¿Ý
+]
+java:S1874"JDon't override a deprecated method or explicitly mark it as "@Deprecated".(­–ÀS
+H
+java:S1874"5Remove this use of "onPostExecute"; it is deprecated.(úñ†

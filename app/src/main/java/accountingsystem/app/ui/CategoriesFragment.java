@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -50,6 +51,7 @@ public class CategoriesFragment extends Fragment {
 
     public void populateCategoriesList(String response) {
         try {
+            TextView loggedInUser = getActivity().findViewById(R.id.navHeaderUser);
             categories = new ArrayList<>();
             ArrayList<String> categoriesString = new ArrayList<String>();
             JSONArray responseArray = new JSONArray(response);
@@ -62,8 +64,19 @@ public class CategoriesFragment extends Fragment {
                 category.setName(object.get("name").toString());
                 category.setDescription(object.get("description").toString());
 
-                categories.add(category);
-                categoriesString.add(category.getName());
+                String responsiblePeopleString = object.get("responsiblePeople").toString();
+                responsiblePeopleString = responsiblePeopleString.substring(1, responsiblePeopleString.length() - 1);
+
+                boolean loggedInUserResponsible = false;
+
+                for (String responsiblePersonEmail : responsiblePeopleString.split(",")) {
+                    if (loggedInUserResponsible) break;
+                    if (responsiblePersonEmail.contains(loggedInUser.getText().toString())) {
+                        categories.add(category);
+                        categoriesString.add(category.getName());
+                        loggedInUserResponsible = true;
+                    }
+                }
             }
 
             ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.getContext(), android.R.layout.simple_list_item_1, categoriesString);
