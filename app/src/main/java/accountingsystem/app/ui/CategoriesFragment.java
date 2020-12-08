@@ -47,6 +47,16 @@ public class CategoriesFragment extends Fragment {
 
     private EditText categoryField;
 
+    private EditText fromDateField;
+
+    private EditText toDateField;
+
+    private Button filterBtn;
+
+    private Button resetFilterBtn;
+
+    private long currentCategoryId;
+
     //endregion
 
     //region Functions
@@ -65,8 +75,15 @@ public class CategoriesFragment extends Fragment {
         receiverField = root.findViewById(R.id.receiverField);
         dateField = root.findViewById(R.id.dateField);
         categoryField = root.findViewById(R.id.categoryField);
+        fromDateField = root.findViewById(R.id.fromDateField);
+        toDateField = root.findViewById(R.id.toDateField);
+        filterBtn = root.findViewById(R.id.filterBtn);
+        resetFilterBtn = root.findViewById(R.id.resetFilterBtn);
 
         loadCategories();
+
+        filterBtn.setOnClickListener(view -> filter());
+        resetFilterBtn.setOnClickListener(view -> loadTransactions(currentCategoryId));
 
         return root;
     }
@@ -114,6 +131,7 @@ public class CategoriesFragment extends Fragment {
                 for (Category category : categories) {
                     if (category.getName().equalsIgnoreCase(categoryName)) {
                         categoryField.setText(categoryName);
+                        currentCategoryId = category.getId();
                         loadTransactions(category.getId());
                     }
                 }
@@ -174,6 +192,45 @@ public class CategoriesFragment extends Fragment {
             e.printStackTrace();
             Toast.makeText(getContext(), "Unable to parse transaction info.", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    //endregion
+
+    //region Filters
+
+    public void filter() {
+        List<Transaction> filteredTransactions = new ArrayList<>();
+        ArrayList<String> transactionsString = new ArrayList<String>();
+        LocalDate fromDate = LocalDate.parse(fromDateField.getText());
+        LocalDate toDate = LocalDate.parse(toDateField.getText());
+
+        for (Transaction transaction : transactions) {
+            if (transaction.getDate().compareTo(fromDate) >= 0 &&
+                    transaction.getDate().compareTo(toDate) <= 0) {
+                transactionsString.add(transaction.getTransactionType() + ": " + transaction.getName());
+                filteredTransactions.add(transaction);
+            }
+        }
+
+        transactions = null;
+        transactions = filteredTransactions;
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.getContext(), android.R.layout.simple_list_item_1, transactionsString);
+        transactionList.setAdapter(adapter);
+
+        transactionList.setOnItemClickListener((parent, view, position, id) -> {
+            String transactionName = transactionList.getItemAtPosition(position).toString().split(":")[1].trim();
+            for (Transaction transaction : transactions) {
+                if (transaction.getName().contains(transactionName)) {
+                    nameField.setText(transactionName);
+                    typeField.setText(transaction.getTransactionType().toString());
+                    amountField.setText(String.valueOf(transaction.getAmount()));
+                    senderField.setText(transaction.getSender());
+                    receiverField.setText(transaction.getReceiver());
+                    dateField.setText(transaction.getDate().toString());
+                }
+            }
+        });
     }
 
     //endregion

@@ -148,4 +148,51 @@
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.061"
             app:layout_constraintVertical_bias="0.594"/>
+    <EditText
+            android:layout_width="190dp"
+            android:layout_height="52dp"
+            android:inputType="date"
+            android:ems="10"
+            android:id="@+id/fromDateField"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.045" app:layout_constraintVertical_bias="0.712"/>
+    <TextView
+            android:text="From date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/textView15"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.014" app:layout_constraintVertical_bias="0.641"/>
+    <EditText
+            android:layout_width="187dp"
+            android:layout_height="47dp"
+            android:inputType="date"
+            android:ems="10"
+            android:id="@+id/toDateField"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.044" app:layout_constraintVertical_bias="0.811"/>
+    <TextView
+            android:text="To date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/textView16"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.013" app:layout_constraintVertical_bias="0.752"/>
+    <Button
+            android:text="Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/filterBtn"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.015" app:layout_constraintVertical_bias="0.91"/>
+    <Button
+            android:text="Reset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/resetFilterBtn"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.352"
+            app:layout_constraintVertical_bias="0.91"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
